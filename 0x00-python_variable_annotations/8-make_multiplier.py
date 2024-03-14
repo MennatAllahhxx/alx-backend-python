@@ -5,11 +5,11 @@ Module contains make_multiplier fun
 from typing import Callable
 
 
-def make_multiplier(muliplier: float) -> Callable[[float], float]:
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """AI is creating summary for make_multiplier
 
     Args:
-        muliplier (float): a factor to mult the number
+        multiplier (float): a factor to mult the number
 
     Returns:
         Callable[[float], float]: a fun that multi factor by number
@@ -24,5 +24,5 @@ def make_multiplier(muliplier: float) -> Callable[[float], float]:
         Returns:
             float: multiplication of factor by number
         """
-        return muliplier * num
+        return multiplier * num
     return mult
