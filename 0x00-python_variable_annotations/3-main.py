@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
-"""
-Module contains to_str fun
-"""
+to_str = __import__('3-to_str').to_str
 
-
-def to_str(n: float) -> str:
-    """AI is creating summary for to_str
-
-    Args:
-        n (float): [description]
-
-    Returns:
-        str: [description]
-    """    
+pi_str = to_str(3.14)
+print(pi_str == str(3.14))
+print(to_str.__annotations__)
+print("to_str(3.14) returns {} which is a {}".format(pi_str, type(pi_str)))
