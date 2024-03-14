@@ -8,9 +8,9 @@ def floor(n: float) -> int:
     """AI is creating summary for floor
 
     Args:
-        n (float): [description]
+        n (float): float number
 
     Returns:
-        int: [description]
+        int: floor of the float number
     """
     return int(n)
