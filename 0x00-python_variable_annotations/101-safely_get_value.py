@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Module contains safe_first_element fun
+Module contains safely_get_value fun
 """
 from typing import Mapping, Any, Union, TypeVar
 
