@@ -7,7 +7,7 @@ import asyncio
 from random import uniform
 
 
-async def wait_random(max_delay=10):
+async def wait_random(max_delay: int = 10) -> float:
     """AI is creating summary for wait_random
 
     Args:
@@ -15,7 +15,7 @@ async def wait_random(max_delay=10):
         Defaults to 10.
 
     Returns:
-        float: the delay of the function resulting from random function
+        float: the delay of the function resulting from random function.
     """
     random_delay = uniform(0, max_delay)
     await asyncio.sleep(random_delay)
