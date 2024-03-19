@@ -3,9 +3,7 @@
 Module contains async_comprehension coroutine
 """
 
-import asyncio
-from random import uniform
-from typing import Generator, List
+from typing import List
 
 async_generator = __import__('0-async_generator').async_generator
 
