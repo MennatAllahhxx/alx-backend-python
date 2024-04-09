@@ -6,7 +6,7 @@ import unittest
 import requests
 from unittest.mock import patch
 from parameterized import parameterized
-from utils import access_nested_map, get_json
+from utils import access_nested_map, get_json, memoize
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -68,6 +68,30 @@ class TestGetJson(unittest.TestCase):
             self.assertEqual(get_json(test_url), test_payload)
             mock_read.assert_called_once_with(test_url)
 
+class TestMemoize(unittest.TestCase):
+    """AI is creating summary for TestMemoize
+
+    Args:
+        unittest (module): a module to create unittests
+    """
+    def test_memoize(self):
+        """AI is creating summary for test_memoize"""
+
+        class TestClass:
+            """AI is creating summary for TestMemoize"""
+            def a_method(self):
+                return 42
+
+            @memoize
+            def a_property(self):
+                return self.a_method()
+
+        with patch.object(TestClass, "a_method") as mock_read:
+            mock_read.return_value = 10
+            inst = TestClass()
+            inst_prop = inst.a_property
+            self.assertEqual(inst_prop, inst.a_property)
+            mock_read.assert_called_once()
 
 if __name__ == "__main__":
     unittest.main()
