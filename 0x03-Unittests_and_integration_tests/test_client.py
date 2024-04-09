@@ -47,6 +47,11 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @patch('client.get_json')
     def test_public_repos(self, mock_json):
+        """AI is creating summary for test_public_repos
+
+        Args:
+            mock_json (Dict): output
+        """
         with patch('client.GithubOrgClient._public_repos_url') as mock_url:
             mock_json.return_value = [{"name": "google"}]
             mock_url.return_value = 'https://api.github.com/orgs/example/repos'
