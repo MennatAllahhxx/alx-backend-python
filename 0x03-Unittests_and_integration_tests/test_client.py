@@ -6,7 +6,7 @@ Module contains TestGithubOrgClient class
 import unittest
 from parameterized import parameterized
 from client import GithubOrgClient
-from unittest.mock import patch
+from unittest.mock import patch, PropertyMock
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -31,6 +31,13 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_read.return_value = expected
         self.assertEqual(GithubOrgClient(testorg).org, expected)
         mock_read.assert_called_once()
+
+    @patch('client.GithubOrgClient.org', new_callable=PropertyMock)
+    def test_public_repos_url(self, mock_read):
+        test_payload = {'repos_url': 'https://api.github.com/orgs/example/repos'}
+        mock_read.return_value = test_payload
+        self.assertEqual(GithubOrgClient("google")._public_repos_url, test_payload["repos_url"])
+
 
 if __name__ == "__main__":
     unittest.main()
