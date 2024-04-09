@@ -34,9 +34,16 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @patch('client.GithubOrgClient.org', new_callable=PropertyMock)
     def test_public_repos_url(self, mock_read):
-        test_payload = {'repos_url': 'https://api.github.com/orgs/example/repos'}
+        """AI is creating summary for test_public_repos_url
+
+        Args:
+            mock_read (Dict): mocked output
+        """
+        test_payload = {'repos_url':
+                        'https://api.github.com/orgs/example/repos'}
         mock_read.return_value = test_payload
-        self.assertEqual(GithubOrgClient("google")._public_repos_url, test_payload["repos_url"])
+        self.assertEqual(GithubOrgClient("google")._public_repos_url,
+                         test_payload["repos_url"])
 
 
 if __name__ == "__main__":
